@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>Factorial Finder App by Ganesh suryawanshi </title>
+		<style>
+		*{font-size:40px;}
+		body{background-color:lightblue;}
+		.btn{background-color:red; color:white; width:20%; margin-left:2% border-radius:20px; }
+		.btn:hover{color:blue;}	
+
+		#output{
+		white-space:pre-wrap;
+		word-wrap:break-word;
+		line-height:1.5;
+		}	
+		</style>
+	</head>
+	<body>
+	<center>
+		<h1> Factorial Finder App</h1>
+		<h3 style="font-size:19px">Code By:Ganesh	Guided By:Kamal Sir<h3>
+	
+		<form onsubmit="fact()">
+			<input type="number" id="num" placeholder="Enter +ve number"/>
+			</br></br>
+			<input type="submit" value="M1" class="btn"/>
+			<input type="submit" value="M2" class="btn"/>
+			<input type="submit" value="M3" class="btn"/>
+		</form>
+		<div id="output"></div>
+		<script>
+			function fact(){
+				event.preventDefault();
+				let num= document.getElementById("num");
+				let msg= document.getElementById("msg");			
+				
+				if(num.value ===""){
+					alert("num is empty");
+					msg.innerHTML="";
+					num.focus();
+					return;
+				}
+
+				
+				let n=parseInt(num.value);
+				if((n<0)){
+					alert("num should be min 0");
+					msg.innerHTML="";
+					num.focus();
+					return;
+				}
+				
+				let action= document.activeElement.value;
+				let ans="";
+				if(action ==="M1"){
+					let i=1n,f=1n;
+					while(i<= BigInt(n)){
+						f=f*i;
+						i++;
+					}
+					ans="M1="+f.toString();
+					document.getElementById('output').innerText= ans.toString();
+				}
+
+
+				else if(action ==="M2"){
+					let i=1n,f=1n;
+					do{
+						f=f*i;
+						i++;
+					}
+					while(i<=BigInt(n));
+					ans="M2="+f
+					document.getElementById('output').innerText= ans.toString();
+				
+				}
+
+				else if(action ==="M3"){
+					let f=1n;
+					for(let i=1n;BigInt(n)>=i;i++){
+						f=f*i;
+					}
+					ans="M3="+f;
+					document.getElementById('output').innerText= ans.toString();
+				}
+			}
+		</script>
+	</center>
+	</body>
+</html>
